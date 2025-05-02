@@ -50,20 +50,6 @@ public class WeatherController : ControllerBase
                     _logger.LogWarning("Failed to parse date-time parameter: {DateTime}", request.QueryResult.Parameters.DateTime);
                 }
             }
-            // If no date-time, try date parameter
-            else if (!string.IsNullOrEmpty(request.QueryResult.Parameters.Date))
-            {
-                _logger.LogDebug("Processing date parameter: {Date}", request.QueryResult.Parameters.Date);
-                if (DateTime.TryParse(request.QueryResult.Parameters.Date, out var parsedDate))
-                {
-                    startDate = parsedDate;
-                    _logger.LogDebug("Successfully parsed date: {ParsedDate}", parsedDate.ToString("yyyy-MM-dd"));
-                }
-                else
-                {
-                    _logger.LogWarning("Failed to parse date parameter: {Date}", request.QueryResult.Parameters.Date);
-                }
-            }
 
             // Process date period if it exists and has valid dates
             if (request.QueryResult.Parameters.DatePeriod != null && 

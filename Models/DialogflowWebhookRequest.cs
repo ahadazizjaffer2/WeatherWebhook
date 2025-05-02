@@ -23,9 +23,6 @@ public class Parameters
     [JsonPropertyName("geo-city")]
     public string? City { get; set; }
 
-    [JsonPropertyName("date")]
-    public string? Date { get; set; }
-
     [JsonPropertyName("date-time")]
     public string? DateTime { get; set; }
 
